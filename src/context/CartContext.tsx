@@ -5,6 +5,8 @@ type CartItem = {
   name: string
   price: number
   quantity: number
+  image?: string
+  description?: string
 }
 
 type CartContextType = {
@@ -16,6 +18,7 @@ type CartContextType = {
   total: number
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
