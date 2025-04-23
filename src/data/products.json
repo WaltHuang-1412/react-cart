@@ -1,0 +1,354 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "高級耳機",
+      "price": 2999,
+      "description": "無線藍牙耳機，高音質音效，長效續航",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Headphones"
+    },
+    {
+      "id": "2",
+      "name": "智慧手錶",
+      "price": 4999,
+      "description": "多功能智慧手錶，健康監測，運動追蹤",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Smartwatch"
+    },
+    {
+      "id": "3",
+      "name": "無線充電板",
+      "price": 999,
+      "description": "快速無線充電，支援多種設備",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Charger"
+    },
+    {
+      "id": "4",
+      "name": "藍牙喇叭",
+      "price": 1999,
+      "description": "便攜式藍牙喇叭，環繞音效",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Speaker"
+    },
+    {
+      "id": "5",
+      "name": "智慧手環",
+      "price": 1499,
+      "description": "輕巧智慧手環，健康監測，運動追蹤",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Band"
+    },
+    {
+      "id": "6",
+      "name": "無線滑鼠",
+      "price": 799,
+      "description": "人體工學設計，精準控制",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Mouse"
+    },
+    {
+      "id": "7",
+      "name": "機械鍵盤",
+      "price": 2499,
+      "description": "機械軸體，RGB背光，遊戲首選",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Keyboard"
+    },
+    {
+      "id": "8",
+      "name": "4K螢幕",
+      "price": 12999,
+      "description": "32吋4K解析度，HDR支援",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Monitor"
+    },
+    {
+      "id": "9",
+      "name": "電競耳機",
+      "price": 3499,
+      "description": "7.1聲道，降噪麥克風，遊戲音效",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Gaming"
+    },
+    {
+      "id": "10",
+      "name": "行動電源",
+      "price": 899,
+      "description": "20000mAh大容量，快充支援",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Power"
+    },
+    {
+      "id": "11",
+      "name": "智慧門鎖",
+      "price": 3999,
+      "description": "指紋辨識，遠端控制，安全防護",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Lock"
+    },
+    {
+      "id": "12",
+      "name": "智慧燈泡",
+      "price": 599,
+      "description": "RGB色彩，語音控制，情境模式",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Light"
+    },
+    {
+      "id": "13",
+      "name": "智慧插座",
+      "price": 499,
+      "description": "遠端控制，定時開關，用電監控",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Socket"
+    },
+    {
+      "id": "14",
+      "name": "智慧攝影機",
+      "price": 1999,
+      "description": "1080P高清，夜視功能，移動偵測",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Camera"
+    },
+    {
+      "id": "15",
+      "name": "智慧門鈴",
+      "price": 1499,
+      "description": "雙向通話，移動偵測，雲端儲存",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Doorbell"
+    },
+    {
+      "id": "16",
+      "name": "智慧窗簾",
+      "price": 2999,
+      "description": "自動控制，定時設定，情境模式",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Curtain"
+    },
+    {
+      "id": "17",
+      "name": "智慧空調",
+      "price": 15999,
+      "description": "變頻節能，遠端控制，溫度感應",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=AC"
+    },
+    {
+      "id": "18",
+      "name": "智慧冰箱",
+      "price": 29999,
+      "description": "大容量，節能設計，溫度控制",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Fridge"
+    },
+    {
+      "id": "19",
+      "name": "智慧洗衣機",
+      "price": 12999,
+      "description": "變頻馬達，多種模式，節能省水",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Washer"
+    },
+    {
+      "id": "20",
+      "name": "智慧掃地機",
+      "price": 8999,
+      "description": "自動回充，地圖規劃，遠端控制",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Robot"
+    },
+    {
+      "id": "21",
+      "name": "智慧電視",
+      "price": 19999,
+      "description": "4K解析度，HDR支援，智慧系統",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=TV"
+    },
+    {
+      "id": "22",
+      "name": "智慧音響",
+      "price": 4999,
+      "description": "環繞音效，語音控制，多房間串連",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Speaker"
+    },
+    {
+      "id": "23",
+      "name": "智慧咖啡機",
+      "price": 3999,
+      "description": "自動研磨，溫度控制，定時功能",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Coffee"
+    },
+    {
+      "id": "24",
+      "name": "智慧電鍋",
+      "price": 2999,
+      "description": "多種烹調模式，定時功能，保溫設計",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Rice"
+    },
+    {
+      "id": "25",
+      "name": "智慧烤箱",
+      "price": 5999,
+      "description": "溫度精準，多種模式，定時功能",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Oven"
+    },
+    {
+      "id": "26",
+      "name": "智慧吸塵器",
+      "price": 6999,
+      "description": "強力吸力，自動回充，HEPA過濾",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Vacuum"
+    },
+    {
+      "id": "27",
+      "name": "智慧電扇",
+      "price": 1999,
+      "description": "靜音設計，定時功能，遙控控制",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Fan"
+    },
+    {
+      "id": "28",
+      "name": "智慧加濕器",
+      "price": 1499,
+      "description": "自動控制，定時功能，靜音設計",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Humidifier"
+    },
+    {
+      "id": "29",
+      "name": "智慧除濕機",
+      "price": 4999,
+      "description": "強力除濕，定時功能，節能設計",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Dehumidifier"
+    },
+    {
+      "id": "30",
+      "name": "智慧空氣清淨機",
+      "price": 7999,
+      "description": "HEPA過濾，PM2.5感應，自動模式",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Air"
+    },
+    {
+      "id": "31",
+      "name": "智慧門窗感應器",
+      "price": 799,
+      "description": "移動偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Sensor"
+    },
+    {
+      "id": "32",
+      "name": "智慧煙霧感應器",
+      "price": 999,
+      "description": "煙霧偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Smoke"
+    },
+    {
+      "id": "33",
+      "name": "智慧一氧化碳感應器",
+      "price": 1299,
+      "description": "氣體偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=CO"
+    },
+    {
+      "id": "34",
+      "name": "智慧水感應器",
+      "price": 899,
+      "description": "漏水偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Water"
+    },
+    {
+      "id": "35",
+      "name": "智慧溫度感應器",
+      "price": 699,
+      "description": "溫度監控，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Temp"
+    },
+    {
+      "id": "36",
+      "name": "智慧濕度感應器",
+      "price": 699,
+      "description": "濕度監控，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Humidity"
+    },
+    {
+      "id": "37",
+      "name": "智慧門鈴攝影機",
+      "price": 2499,
+      "description": "1080P高清，雙向通話，移動偵測",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Doorbell"
+    },
+    {
+      "id": "38",
+      "name": "智慧門鎖攝影機",
+      "price": 2999,
+      "description": "指紋辨識，1080P高清，遠端控制",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Lock"
+    },
+    {
+      "id": "39",
+      "name": "智慧門鈴感應器",
+      "price": 599,
+      "description": "移動偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Doorbell"
+    },
+    {
+      "id": "40",
+      "name": "智慧門鎖感應器",
+      "price": 699,
+      "description": "開關偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Lock"
+    },
+    {
+      "id": "41",
+      "name": "智慧窗戶感應器",
+      "price": 799,
+      "description": "開關偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "42",
+      "name": "智慧窗戶控制器",
+      "price": 1999,
+      "description": "自動控制，定時功能，遠端控制",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "43",
+      "name": "智慧窗戶鎖",
+      "price": 1499,
+      "description": "指紋辨識，遠端控制，安全防護",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "44",
+      "name": "智慧窗戶警報器",
+      "price": 899,
+      "description": "移動偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "45",
+      "name": "智慧窗戶攝影機",
+      "price": 1999,
+      "description": "1080P高清，移動偵測，遠端監控",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "46",
+      "name": "智慧窗戶感應器套組",
+      "price": 2499,
+      "description": "多種感應器，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "47",
+      "name": "智慧窗戶控制器套組",
+      "price": 3999,
+      "description": "自動控制，定時功能，遠端控制",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "48",
+      "name": "智慧窗戶鎖套組",
+      "price": 2999,
+      "description": "指紋辨識，遠端控制，安全防護",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "49",
+      "name": "智慧窗戶警報器套組",
+      "price": 1999,
+      "description": "移動偵測，警報功能，遠端通知",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    },
+    {
+      "id": "50",
+      "name": "智慧窗戶攝影機套組",
+      "price": 3499,
+      "description": "1080P高清，移動偵測，遠端監控",
+      "image": "https://placehold.co/400x400/2563eb/ffffff?text=Window"
+    }
+  ]
+} 
