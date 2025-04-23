@@ -1,5 +1,5 @@
 // src/contexts/CartContext.tsx
-import { createContext, useState, ReactNode } from 'react'
+import { createContext, useState, ReactNode, useMemo } from 'react'
 
 // 型別定義
 export type CartItem = {
@@ -56,10 +56,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     )
   }
 
-  const getTotal = () =>
+  const total = useMemo(() => 
     items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  , [items])
 
-  const total = getTotal()
+  const getTotal = useMemo(() => () => total, [total])
 
   return (
     <CartContext.Provider value={{ items, addItem, removeItem, updateQuantity, getTotal, total }}>
