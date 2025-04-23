@@ -1,6 +1,8 @@
+// src/contexts/CartContext.tsx
 import { createContext, useState, ReactNode } from 'react'
 
-type CartItem = {
+// 型別定義
+export type CartItem = {
   id: string
   name: string
   price: number
@@ -9,7 +11,7 @@ type CartItem = {
   description?: string
 }
 
-type CartContextType = {
+export type CartContextType = {
   items: CartItem[]
   addItem: (item: CartItem) => void
   removeItem: (id: string) => void
@@ -18,9 +20,11 @@ type CartContextType = {
   total: number
 }
 
+// 建立 Context
 // eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext<CartContextType | undefined>(undefined)
 
+// 🎁 Provider 組件
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([])
 

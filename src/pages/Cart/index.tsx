@@ -1,4 +1,3 @@
-import React from 'react'
 import CartDisplay from '../../components/CartDisplay'
 
 export default function Cart() {
@@ -8,4 +7,4 @@ export default function Cart() {
       <CartDisplay />
     </div>
   )
-} 
+}
