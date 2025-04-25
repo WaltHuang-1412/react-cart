@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState, useMemo } from 'react'
+import { createContext, ReactNode, useState, useMemo } from 'react'
 import productsData from '../data/products.json'
 
 export interface Product {
@@ -31,12 +31,15 @@ export function ProductProvider({ children }: { children: ReactNode }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
 
-  const filteredProducts = useMemo(() => 
-    productsData.products.filter(product => 
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-  , [searchTerm])
+  const filteredProducts = useMemo(
+    () =>
+      productsData.products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
+    [searchTerm],
+  )
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
 
@@ -46,16 +49,18 @@ export function ProductProvider({ children }: { children: ReactNode }) {
   }, [filteredProducts, currentPage])
 
   return (
-    <ProductContext.Provider value={{ 
-      products: productsData.products, 
-      searchTerm, 
-      setSearchTerm,
-      filteredProducts,
-      currentPage,
-      setCurrentPage,
-      totalPages,
-      currentProducts
-    }}>
+    <ProductContext.Provider
+      value={{
+        products: productsData.products,
+        searchTerm,
+        setSearchTerm,
+        filteredProducts,
+        currentPage,
+        setCurrentPage,
+        totalPages,
+        currentProducts,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   )

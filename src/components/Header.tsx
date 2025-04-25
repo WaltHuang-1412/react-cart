@@ -1,14 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart } from 'lucide-react';
-import { Button } from '@/components/ui/Button/';
+import { Link, useLocation } from 'react-router-dom'
+import { ShoppingCart } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 export const Header = () => {
-  const location = useLocation();
+  const location = useLocation()
 
   const navLinkClass = (path: string) =>
     location.pathname === path
       ? 'text-black font-semibold'
-      : 'text-gray-500 hover:text-black transition';
+      : 'text-gray-500 hover:text-black transition'
 
   return (
     <header className="w-full border-b bg-white sticky top-0 z-50">
@@ -38,5 +38,7 @@ export const Header = () => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
+
+export default Header
