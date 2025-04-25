@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 export const Header = () => {
   const location = useLocation()
@@ -28,6 +29,7 @@ export const Header = () => {
             結帳
           </Link>
         </nav>
+        <ThemeToggle />
 
         <div className="md:hidden">
           <Link to="/cart">
