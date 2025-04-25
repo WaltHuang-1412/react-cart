@@ -1,5 +1,5 @@
 // src/contexts/CartContext.tsx
-import { createContext, useState, ReactNode, useMemo } from 'react'
+import { createContext, useState, ReactNode, useMemo, useContext } from 'react'
 
 // 型別定義
 export type CartItem = {
@@ -23,6 +23,13 @@ export type CartContextType = {
 // 建立 Context
 // eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext<CartContextType | undefined>(undefined)
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useCart = (): CartContextType => {
+  const ctx = useContext(CartContext)
+  if (!ctx) throw new Error('useCart must be used within a CartProvider')
+  return ctx
+}
 
 // 🎁 Provider 組件
 export const CartProvider = ({ children }: { children: ReactNode }) => {
@@ -50,20 +57,21 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return
     }
     setItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity } : item
-      )
+      prev.map((item) => (item.id === id ? { ...item, quantity } : item)),
     )
   }
 
-  const total = useMemo(() => 
-    items.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  , [items])
+  const total = useMemo(
+    () => items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    [items],
+  )
 
   const getTotal = useMemo(() => () => total, [total])
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem, updateQuantity, getTotal, total }}>
+    <CartContext.Provider
+      value={{ items, addItem, removeItem, updateQuantity, getTotal, total }}
+    >
       {children}
     </CartContext.Provider>
   )

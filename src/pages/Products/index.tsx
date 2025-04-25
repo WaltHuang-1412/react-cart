@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react'
+import type { Product } from '@/contexts/ProductContext'
 import { ProductContext } from '@/contexts/ProductContext'
 import { ProductCard } from '@/components/ProductCard'
 import { Pagination } from '@/components/Pagination'
@@ -15,6 +16,7 @@ import {
 } from '@/components/ui/Form'
 import { Input } from '@/components/ui/Input'
 import { useDebouncedValue } from '@/hooks/useDebouncedValue' // ✅ 加這行
+import { useCart } from '@/hooks/useCart'
 
 const SearchSchema = z.object({
   search: z.string().optional(),
@@ -24,6 +26,7 @@ type SearchFormValues = z.infer<typeof SearchSchema>
 
 export default function Products() {
   const context = useContext(ProductContext)
+  const { addItem } = useCart()
 
   if (!context) throw new Error('Products 必須在 ProductProvider 裡使用')
 
@@ -88,7 +91,12 @@ export default function Products() {
           <ProductCard
             key={product.id}
             product={product}
-            onAddToCart={(p) => console.log('加入購物車', p)}
+            onAddToCart={(product) => {
+              addItem({
+                ...product,
+                quantity: 1,
+              })
+            }}
           />
         ))}
       </div>

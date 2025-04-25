@@ -1,9 +1,27 @@
-import { useContext } from 'react'
-import { CartContext } from '../contexts/CartContext'
-import type { CartContextType } from '../contexts/CartContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState, AppDispatch } from '@/store'
+import { addItem, removeItem, updateQuantity } from '@/store/cartSlice'
 
-export const useCart = (): CartContextType => {
-  const ctx = useContext(CartContext)
-  if (!ctx) throw new Error('useCart must be used within a CartProvider')
-  return ctx
+export function useCart() {
+  const dispatch: AppDispatch = useDispatch()
+  const items = useSelector((state: RootState) => state.cart.items)
+
+  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+
+  const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0)
+
+  const getQuantity = (id: string) => {
+    return items.find((item) => item.id === id)?.quantity ?? 0
+  }
+
+  return {
+    items,
+    total,
+    totalQuantity,
+    getQuantity,
+    addItem: (item: Parameters<typeof addItem>[0]) => dispatch(addItem(item)),
+    removeItem: (id: string) => dispatch(removeItem(id)),
+    updateQuantity: (id: string, quantity: number) =>
+      dispatch(updateQuantity({ id, quantity })),
+  }
 }

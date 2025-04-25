@@ -2,10 +2,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import { useCart } from '@/hooks/useCart'
 
 export const Header = () => {
   const location = useLocation()
-
+  const { totalQuantity } = useCart()
   const navLinkClass = (path: string) =>
     location.pathname === path
       ? 'text-black font-semibold'
@@ -35,6 +36,11 @@ export const Header = () => {
           <Link to="/cart">
             <Button variant="outline" size="icon">
               <ShoppingCart className="h-5 w-5" />
+              {totalQuantity > 0 && (
+                <span className="text-sm font-medium">
+                  {totalQuantity}
+                </span>
+              )}
             </Button>
           </Link>
         </div>

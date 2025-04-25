@@ -2,11 +2,13 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { ProductContext } from '@/contexts/ProductContext'
 import { Button } from '@/components/ui/button'
+import { useCart } from '@/hooks/useCart'
 
 export default function ProductDetailPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const context = useContext(ProductContext)
+  const { addItem } = useCart()
 
   if (!context) {
     throw new Error('ProductDetailPage 必須在 ProductProvider 中使用')
@@ -36,7 +38,11 @@ export default function ProductDetailPage() {
       <p className="text-gray-500 mb-4">{product.description}</p>
       <p className="text-lg font-semibold mb-6">${product.price}</p>
 
-      <Button onClick={() => console.log('加入購物車', product)}>
+      <Button
+        onClick={() => {
+          addItem({ ...product, quantity: 1 })
+        }}
+      >
         加入購物車
       </Button>
     </div>
