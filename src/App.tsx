@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import Products from './pages/Products'
 import ProductDetailPage from './pages/ProductDetail'
+import CheckoutPage from './pages/Checkout'
 
 import { MainLayout } from './layouts/MainLayout'
 
@@ -48,6 +49,7 @@ function App() {
               </MainLayout>
             }
           />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </AppProvider>
     </BrowserRouter>

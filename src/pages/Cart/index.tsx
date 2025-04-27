@@ -2,9 +2,11 @@ import { useCart } from '@/hooks/useCart'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { Separator } from '@/components/ui/Separator'
+import { useNavigate } from 'react-router-dom'
 
 export default function CartPage() {
   const { items, total, updateQuantity, removeItem } = useCart()
+  const navigate = useNavigate()
 
   return (
     <div className="max-w-5xl mx-auto p-4 sm:p-6">
@@ -85,6 +87,11 @@ export default function CartPage() {
             <span>總金額</span>
             <span>${total}</span>
           </div>
+
+          {/* 🛒 前往結帳按鈕 */}
+          <Button className="w-full mt-6" onClick={() => navigate('/checkout')}>
+            前往結帳
+          </Button>
         </div>
       )}
     </div>
