@@ -1,160 +1,88 @@
-# React 購物車專案
+# 🛒 React Cart — 前端技術練習專案
 
-這是一個使用 React + TypeScript + Tailwind CSS 開發的購物車專案，用於學習和實踐 React 的核心概念。
+本專案為練習 React 18 現代開發流程的購物車系統，  
+專注於技術結構、狀態管理、表單驗證、模組化開發。
 
-## 專案功能
+---
 
-- 產品列表展示
-- 購物車功能（新增、刪除、修改數量）
-- 響應式設計
-- 狀態管理
+## 🚀 技術棧 Tech Stack
 
-## 技術棧
+- Frontend:
+  - React 18 + TypeScript
+  - Vite 6
+  - React Router 7
+  - React Hook Form + zod
+  - @tanstack/react-query
+  - Tailwind CSS 4 + shadcn/ui
+  - sonner (toast 通知)
+  - axios (API 請求模組化)
+- 狀態管理：
+  - Context API（Cart、Product 狀態）
+  - Redux Toolkit（準備擴展中）
 
-- React 18
-- TypeScript
-- Tailwind CSS
-- React Router
-- Context API
-- Custom Hooks
+---
 
-## 學習重點
-
-### 1. React Context 的使用
-- 使用 Context API 管理購物車狀態
-- 實現跨組件狀態共享
-- 理解 Context 的適用場景
-
-```typescript
-// CartContext.tsx
-export const CartContext = createContext<CartContextType | undefined>(undefined)
-
-export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<CartItem[]>([])
-  // ... 購物車邏輯
-}
-```
-
-### 2. Custom Hooks
-- 封裝購物車邏輯
-- 提高代碼復用性
-- 分離業務邏輯
-
-```typescript
-// useCart.ts
-export const useCart = () => {
-  const ctx = useContext(CartContext)
-  if (!ctx) throw new Error('useCart must be used within a CartProvider')
-  return ctx
-}
-```
-
-### 3. TypeScript 類型定義
-- 定義清晰的介面
-- 提供類型安全
-- 改善開發體驗
-
-```typescript
-type CartItem = {
-  id: string
-  name: string
-  price: number
-  quantity: number
-  image?: string
-  description?: string
-}
-```
-
-### 4. Tailwind CSS 樣式管理
-- 使用 utility-first 的方式編寫樣式
-- 響應式設計
-- 組件樣式封裝
-
-```typescript
-// 產品卡片樣式
-<div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-6 flex flex-col group">
-  // ... 內容
-</div>
-```
-
-### 5. 組件設計
-- 組件拆分原則
-- 組件通信方式
-- 組件復用策略
-
-## 專案結構
-
-```
+## 🛠️ 專案結構 Project Structure
 src/
-├── components/         # 可重用組件
-│   ├── Navigation.tsx  # 導航欄
-│   ├── ProductList.tsx # 產品列表
-│   └── CartDisplay.tsx # 購物車顯示
-├── context/           # Context 相關
-│   └── CartContext.tsx # 購物車 Context
-├── hooks/             # Custom Hooks
-│   └── useCart.ts     # 購物車 Hook
-├── pages/             # 頁面組件
-│   ├── Home/          # 首頁
-│   └── Cart/          # 購物車頁面
-└── App.tsx            # 應用入口
-```
+├── api/            # API 設定與模組
+├── components/     # 通用元件
+├── contexts/       # Context API 狀態管理
+├── hooks/          # 客製化 Hook
+├── layouts/        # 動態 Layout 系統
+├── pages/          # 各個頁面模組
+├── router/         # 動態路由管理
+├── types/          # 型別定義
+└── App.tsx         # 專案進入點
 
-## 學習心得
+---
 
-1. **狀態管理**
-   - Context API 適合中小型應用的狀態管理
-   - 合理使用 Context 可以避免 prop drilling
-   - 需要注意 Context 的性能影響
+## 📚 核心功能 Core Features
 
-2. **TypeScript 實踐**
-   - 類型定義可以提前發現錯誤
-   - 良好的類型定義可以作為文檔
-   - 需要平衡類型定義的完整性和開發效率
+- **商品列表頁**（Products）
+  - 分頁顯示
+  - 支援關鍵字搜尋（帶 debounce）
+- **商品詳情頁**（Product Detail）
+  - 顯示商品詳細資訊
+- **購物車功能**（Cart）
+  - 加入購物車、變更數量、刪除商品
+  - 自動計算總金額
+- **結帳流程**（Checkout）
+  - 表單輸入（姓名、電話、地址）
+  - 表單驗證（zod 驗證結合 react-hook-form）
+  - 成功後清空購物車並導向 Thank You Page
+- **動態 Layout 系統**
+  - Products、Cart 等頁面套用 MainLayout（Header + Footer）
+  - Checkout、ThankYou 等頁面不套 Layout
+- **Toast 提示系統**
+  - 成功/失敗提示整合 sonner
+- **API 請求結構化**
+  - axios instance
+  - checkout API 送單流程模擬
+- **模組化組件**
+  - 通用元件（Button, Input, Pagination, FormControl）
 
-3. **組件設計**
-   - 組件應該具有單一職責
-   - 合理使用 props 和 Context
-   - 注意組件的可復用性
+---
 
-4. **樣式管理**
-   - Tailwind CSS 提供了高效的開發體驗
-   - 需要合理組織樣式代碼
-   - 注意樣式的可維護性
+## 📈 目前進度 Progress
 
-## 待改進的地方
+| 進度 | 說明 |
+|:---|:---|
+| ✅ 初始化 React + Tailwind + shadcn 專案架構 |
+| ✅ 完成購物車基本功能（增刪改查） |
+| ✅ 完成 Checkout 流程（含表單驗證 + API 模擬送出） |
+| ✅ 整合動態 Layout 系統（自動根據頁面選擇是否套用 Layout） |
+| ✅ 整合 react-query 處理訂單送出流程 |
+| ✅ 整合 toast 成功/失敗提示 |
+| 🛠️ 商品詳情頁細節豐富化（進行中） |
+| 🛠️ RWD 響應式細節優化（進行中） |
+| 🔜 模擬 API（json-server or MSW）串接 |
+| 🔜 Redux Toolkit 整合購物車進階功能 |
 
-1. 添加更多功能
-   - 用戶認證
-   - 訂單管理
-   - 產品詳情頁
+---
 
-2. 優化性能
-   - 實現虛擬列表
-   - 優化重渲染
-   - 添加載入狀態
+## 📢 備註 Notes
 
-3. 改進用戶體驗
-   - 添加動畫效果
-   - 優化表單驗證
-   - 添加錯誤處理
+- 本專案資料為前端假資料，部分功能使用 setTimeout 模擬 API。
+- 本專案以「專注 React 技術練習」為目標，非商業正式版。
 
-## 運行專案
-
-```bash
-# 安裝依賴
-npm install
-
-# 開發環境運行
-npm run dev
-
-# 構建生產版本
-npm run build
-```
-
-## 參考資源
-
-- [React 官方文檔](https://react.dev/)
-- [TypeScript 文檔](https://www.typescriptlang.org/)
-- [Tailwind CSS 文檔](https://tailwindcss.com/)
-- [React Router 文檔](https://reactrouter.com/)
+---
