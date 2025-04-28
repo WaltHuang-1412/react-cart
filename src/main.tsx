@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import { store } from './store'
 import { Provider } from 'react-redux'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Toaster } from 'sonner'
 import './index.css'
 import App from './App.tsx'
 const queryClient = new QueryClient()
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')!).render(
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <App />
+          <Toaster richColors />
         </Provider>
       </QueryClientProvider>
     </ThemeProvider>

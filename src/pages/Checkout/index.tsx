@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useCart } from '@/hooks/useCart'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
@@ -17,7 +18,8 @@ import { toast } from 'sonner'
 import { checkoutOrder } from '@/api/checkout'
 
 export default function CheckoutPage() {
-  const { items, total } = useCart()
+  const { items, total, clearCart } = useCart()
+  const navigate = useNavigate()
 
   const checkoutSchema = z.object({
     name: z.string().min(1, '姓名必填'),
@@ -40,6 +42,8 @@ export default function CheckoutPage() {
     },
     onSuccess: () => {
       toast.success('訂單送出成功！')
+      clearCart()
+      navigate('/thank-you')
     },
     onError: (error: any) => {
       toast.error(error.message || '訂單送出失敗')
@@ -52,7 +56,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="max-w-3xl mx-auto p-4 space-y-6">
-      <h1 className="text-2xl font-bold mb-6">結帳 Checkout</h1>
+      <h1 className="text-2xl font-bold">結帳 Checkout</h1>
 
       {/* 🧾 表單區 */}
       <Form {...form}>

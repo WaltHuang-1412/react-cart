@@ -6,10 +6,11 @@ interface AppProviderProps {
   children: ReactNode
 }
 
+// 這裡列出所有 Provider
+const providers = [ProductProvider, CartProvider]
+
 export function AppProvider({ children }: AppProviderProps) {
-  return (
-    <ProductProvider>
-      <CartProvider>{children}</CartProvider>
-    </ProductProvider>
-  )
+  return providers.reduceRight((acc, Provider) => {
+    return <Provider>{acc}</Provider>
+  }, children)
 }
