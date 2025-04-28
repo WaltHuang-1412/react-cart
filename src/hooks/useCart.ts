@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState, AppDispatch } from '@/store'
-import { addItem, removeItem, updateQuantity } from '@/store/cartSlice'
+import {
+  addItem,
+  removeItem,
+  updateQuantity,
+  clearCart,
+} from '@/store/cartSlice'
 
 export function useCart() {
   const dispatch: AppDispatch = useDispatch()
@@ -23,5 +28,6 @@ export function useCart() {
     removeItem: (id: string) => dispatch(removeItem(id)),
     updateQuantity: (id: string, quantity: number) =>
       dispatch(updateQuantity({ id, quantity })),
+    clearCart: () => dispatch(clearCart()),
   }
 }

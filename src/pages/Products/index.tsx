@@ -1,5 +1,4 @@
 import { useContext, useEffect } from 'react'
-import type { Product } from '@/contexts/ProductContext'
 import { ProductContext } from '@/contexts/ProductContext'
 import { ProductCard } from '@/components/ProductCard'
 import { Pagination } from '@/components/Pagination'

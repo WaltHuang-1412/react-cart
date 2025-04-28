@@ -21,9 +21,9 @@ const Form = <T extends FieldValues>({
   return <FormProvider {...methods}>{children}</FormProvider>
 }
 
-const FormField = Controller as <T extends FieldValues>(
-  props: ControllerProps<T>,
-) => JSX.Element
+function FormField<T extends FieldValues>(props: ControllerProps<T>) {
+  return <Controller {...props} />
+}
 
 const FormItem = ({
   className,

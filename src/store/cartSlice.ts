@@ -45,8 +45,14 @@ const cartSlice = createSlice({
         }
       }
     },
+    // ✅ 加這段：清空購物車
+    clearCart: (state) => {
+      state.items = []
+    },
   },
 })
 
-export const { addItem, removeItem, updateQuantity } = cartSlice.actions
+// ✅ 別忘了 export 出 clearCart
+export const { addItem, removeItem, updateQuantity, clearCart } =
+  cartSlice.actions
 export default cartSlice.reducer

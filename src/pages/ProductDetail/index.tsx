@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { ProductContext } from '@/contexts/ProductContext'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { useCart } from '@/hooks/useCart'
 
 export default function ProductDetailPage() {
