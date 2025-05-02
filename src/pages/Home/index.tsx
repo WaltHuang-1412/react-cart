@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/Button'
-import { ProductCard } from '@/components/ProductCard'
+import ProductCard from '@/components/ProductCard'
 import { ProductContext, Product } from '@/contexts/ProductContext'
 import { useContext } from 'react'
 
@@ -31,7 +31,9 @@ export default function Home() {
             <h1 className="text-6xl font-bold mb-6 leading-tight">
               探索<span className="text-yellow-300">無限</span>可能
             </h1>
-            <p className="text-2xl mb-8 text-gray-100">發現最新、最熱門的商品，享受優質購物體驗</p>
+            <p className="text-2xl mb-8 text-gray-100">
+              發現最新、最熱門的商品，享受優質購物體驗
+            </p>
             <div className="flex gap-4">
               <Button
                 onClick={() => navigate('/products')}
@@ -54,7 +56,9 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-4 text-center">商品分類</h2>
-          <p className="text-gray-600 text-center mb-12">探索我們精心挑選的商品類別</p>
+          <p className="text-gray-600 text-center mb-12">
+            探索我們精心挑選的商品類別
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {categories.map((category) => (
               <div
@@ -80,7 +84,10 @@ export default function Home() {
           <p className="text-gray-600 text-center mb-12">精選最受歡迎的商品</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product: Product) => (
-              <div key={product.id} className="transform hover:-translate-y-2 transition-all duration-300">
+              <div
+                key={product.id}
+                className="transform hover:-translate-y-2 transition-all duration-300"
+              >
                 <ProductCard product={product} />
               </div>
             ))}

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/Button'
 
@@ -14,7 +15,7 @@ interface ProductCardProps {
   onAddToCart?: (product: Product) => void
 }
 
-export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
+const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all bg-white flex flex-col">
       {/* 點圖片與標題可以進入詳情頁 */}
@@ -45,4 +46,5 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
   )
 }
 
-export default ProductCard
+// ✅ 使用 React.memo，自動比較 props
+export default memo(ProductCard)

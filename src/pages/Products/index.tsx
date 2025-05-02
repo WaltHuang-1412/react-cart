@@ -1,6 +1,6 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useCallback } from 'react'
 import { ProductContext } from '@/contexts/ProductContext'
-import { ProductCard } from '@/components/ProductCard'
+import ProductCard from '@/components/ProductCard'
 import { Pagination } from '@/components/Pagination'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -44,6 +44,13 @@ export default function Products() {
       search: searchTerm,
     },
   })
+
+  const handleAddToCart = useCallback(
+    (product: (typeof currentProducts)[0]) => {
+      addItem({ ...product, quantity: 1 })
+    },
+    [addItem],
+  )
 
   // ✅ 取得實際輸入值
   const watchedSearch = form.watch('search') ?? ''
@@ -90,12 +97,7 @@ export default function Products() {
           <ProductCard
             key={product.id}
             product={product}
-            onAddToCart={(product) => {
-              addItem({
-                ...product,
-                quantity: 1,
-              })
-            }}
+            onAddToCart={handleAddToCart}
           />
         ))}
       </div>
