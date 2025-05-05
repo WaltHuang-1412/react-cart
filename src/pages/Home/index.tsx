@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/Button'
 import ProductCard from '@/components/ProductCard'
 import { ProductContext, Product } from '@/contexts/ProductContext'
-import { useContext } from 'react'
+import { useContext, useCallback } from 'react'
+import { useCart } from '@/hooks/useCart'
 
 export default function Home() {
   const navigate = useNavigate()
   const productContext = useContext(ProductContext)
+  const { addItem } = useCart()
   const products = productContext?.products || []
 
   // Get featured products (first 4 products)
@@ -19,6 +21,13 @@ export default function Home() {
     { id: 3, name: '家居', icon: '🏠', description: '打造理想生活' },
     { id: 4, name: '美妝', icon: '💄', description: '美麗保養' },
   ]
+
+  const handleAddToCart = useCallback(
+    (product: Product) => {
+      addItem({ ...product, quantity: 1 }) // ✅ 類型一致
+    },
+    [addItem],
+  )
 
   return (
     <div className="min-h-screen">
@@ -88,7 +97,11 @@ export default function Home() {
                 key={product.id}
                 className="transform hover:-translate-y-2 transition-all duration-300"
               >
-                <ProductCard product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                />
               </div>
             ))}
           </div>

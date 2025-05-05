@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState, useMemo } from 'react'
+import { createContext, ReactNode, useMemo, useReducer } from 'react'
 import productsData from '../data/products.json'
 
 export interface Product {
@@ -9,15 +9,18 @@ export interface Product {
   image: string
 }
 
-interface ProductContextType {
-  products: Product[]
+interface ProductState {
   searchTerm: string
-  setSearchTerm: (term: string) => void
-  filteredProducts: Product[]
   currentPage: number
-  setCurrentPage: (page: number) => void
+}
+
+interface ProductContextType extends ProductState {
+  products: Product[]
+  filteredProducts: Product[]
   totalPages: number
   currentProducts: Product[]
+  setSearchTerm: (term: string) => void
+  setCurrentPage: (page: number) => void
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -27,36 +30,57 @@ export const ProductContext = createContext<ProductContextType | undefined>(
 
 const ITEMS_PER_PAGE = 10
 
-export function ProductProvider({ children }: { children: ReactNode }) {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [currentPage, setCurrentPage] = useState(1)
+function productReducer(
+  state: ProductState,
+  action: {
+    type: 'SET_SEARCH_TERM' | 'SET_CURRENT_PAGE'
+    payload: string | number
+  },
+): ProductState {
+  switch (action.type) {
+    case 'SET_SEARCH_TERM':
+      return { ...state, searchTerm: action.payload as string, currentPage: 1 }
+    case 'SET_CURRENT_PAGE':
+      return { ...state, currentPage: action.payload as number }
+    default:
+      return state
+  }
+}
 
-  const filteredProducts = useMemo(
-    () =>
-      productsData.products.filter(
-        (product) =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          product.description.toLowerCase().includes(searchTerm.toLowerCase()),
-      ),
-    [searchTerm],
-  )
+export function ProductProvider({ children }: { children: ReactNode }) {
+  const [state, dispatch] = useReducer(productReducer, {
+    searchTerm: '',
+    currentPage: 1,
+  })
+
+  const filteredProducts = useMemo(() => {
+    return productsData.products.filter(
+      (product) =>
+        product.name.toLowerCase().includes(state.searchTerm.toLowerCase()) ||
+        product.description
+          .toLowerCase()
+          .includes(state.searchTerm.toLowerCase()),
+    )
+  }, [state.searchTerm])
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
 
   const currentProducts = useMemo(() => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const startIndex = (state.currentPage - 1) * ITEMS_PER_PAGE
     return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE)
-  }, [filteredProducts, currentPage])
+  }, [filteredProducts, state.currentPage])
 
   return (
     <ProductContext.Provider
       value={{
         products: productsData.products,
-        searchTerm,
-        setSearchTerm,
+        searchTerm: state.searchTerm,
+        setSearchTerm: (term: string) =>
+          dispatch({ type: 'SET_SEARCH_TERM', payload: term }),
+        currentPage: state.currentPage,
+        setCurrentPage: (page: number) =>
+          dispatch({ type: 'SET_CURRENT_PAGE', payload: page }),
         filteredProducts,
-        currentPage,
-        setCurrentPage,
         totalPages,
         currentProducts,
       }}

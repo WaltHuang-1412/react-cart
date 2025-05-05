@@ -1,6 +1,7 @@
 import { useContext, useEffect, useCallback } from 'react'
 import { ProductContext } from '@/contexts/ProductContext'
 import ProductCard from '@/components/ProductCard'
+import type { Product } from '@/components/ProductCard'
 import { Pagination } from '@/components/Pagination'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -46,12 +47,11 @@ export default function Products() {
   })
 
   const handleAddToCart = useCallback(
-    (product: (typeof currentProducts)[0]) => {
-      addItem({ ...product, quantity: 1 })
+    (product: Product) => {
+      addItem({ ...product, quantity: 1 }) // ✅ 類型一致
     },
     [addItem],
   )
-
   // ✅ 取得實際輸入值
   const watchedSearch = form.watch('search') ?? ''
 
