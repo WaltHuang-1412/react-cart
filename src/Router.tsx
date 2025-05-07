@@ -7,6 +7,7 @@ import ProductDetailPage from './pages/ProductDetail'
 import Cart from './pages/Cart'
 import CheckoutPage from './pages/Checkout'
 import ThankYouPage from './pages/ThankYou'
+import DialogDemoPage from './pages/DialogDemo'
 import { MainLayout } from './layouts/MainLayout'
 
 // 設定所有 route 列表
@@ -17,6 +18,7 @@ const routes = [
   { path: '/cart', element: <Cart />, layout: MainLayout },
   { path: '/checkout', element: <CheckoutPage /> }, // 不套 MainLayout
   { path: '/thank-you', element: <ThankYouPage /> }, // 不套 MainLayout
+  { path: '/dialog-demo', element: <DialogDemoPage /> },
 ]
 
 export function Router() {

@@ -7,6 +7,10 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   css: {
+    modules: {
+      localsConvention: 'camelCaseOnly', // optional: 保持命名一致性
+      generateScopedName: '[local]', // 只使用原始 class 名稱
+    },
     postcss: './postcss.config.js',
   },
   resolve: {

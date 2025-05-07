@@ -1,0 +1,18 @@
+/* src/components/Backdrop/Backdrop.module.css */
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 黑色半透明 */
+  pointer-events: auto;
+}
